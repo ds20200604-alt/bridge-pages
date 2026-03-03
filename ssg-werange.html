@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>이동 중...</title>
+
+  <!-- GA4 (gtag) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6YY7KFPNYT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6YY7KFPNYT', { 'send_page_view': true });
+  </script>
+
+  <script>
+    // 목적지 SSG URL (상품 상세)
+    const DEST = "https://www.ssg.com/item/itemView.ssg?itemId=1000692807629&siteNo=6004&salestrNo=6005";
+
+    // 현재 URL의 쿼리(utm 포함)를 목적지로 그대로 붙여서 전달(가능하면)
+    const qs = window.location.search || "";
+
+    // GA page_view 전송 시간을 잠깐 확보한 뒤 이동
+    setTimeout(() => {
+      const join = DEST.includes("?") ? "&" : "?";
+      window.location.replace(DEST + (qs ? join + qs.substring(1) : ""));
+    }, 800);
+  </script>
+</head>
+<body>
+  이동 중입니다...
+</body>
+</html>
